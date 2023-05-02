@@ -1,66 +1,33 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel - Repository Pattern
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Sobre
 
-## About Laravel
+Neste projeto, vmaos mostrar exemplos de uso de Repositórios em aplicações Laravel.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<blockquote cite="https://chat.openai.com">
+O padrão Repository é uma abordagem para isolar a lógica de acesso a dados da aplicação, tornando-a mais testável e desacoplada do código de negócios. No Laravel, o padrão Repository pode ser aplicado tanto para banco de dados quanto para APIs. Para usar o padrão Repository com banco de dados no Laravel, você pode criar uma interface para definir os métodos de acesso aos dados que serão implementados por uma classe concreta.</blockquote>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Dicas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<ol><li>
+<b>Abstração adequada dos detalhes de implementação:</b> A interface do repositório deve abstrair os detalhes de implementação do banco de dados ou da API. O código de negócios da aplicação deve ser capaz de trabalhar com a interface do repositório sem saber como os dados são armazenados ou acessados.
+</li>
+<li>
+<b>Separar responsabilidades</b>: O padrão Repository ajuda a separar as responsabilidades da aplicação em camadas distintas. A camada de negócios interage com o repositório, que por sua vez interage com o banco de dados ou API. Isso ajuda a manter o código organizado e facilita a manutenção e testabilidade da aplicação.
+</li>
+<li>
+<b>Utilize a injeção de dependência</b>: A injeção de dependência é uma prática recomendada para instanciar os repositórios nas classes que os utilizam. Isso torna a aplicação mais desacoplada e facilita a troca de implementações do repositório.
+</li>
+<li>
+<b>Padronize a nomenclatura</b>: A nomenclatura dos métodos do repositório deve ser padronizada para que seja fácil de entender o que cada método faz. Os nomes dos métodos devem ser descritivos e seguir uma convenção. Por exemplo, para um repositório de usuários, poderíamos usar os métodos all, find, create, update e delete.
+</li>
+<li>
+<b>Considere o uso de cache</b>: O padrão Repository pode ser usado com cache para melhorar o desempenho da aplicação. Em vez de buscar os dados no banco de dados ou na API toda vez que um método é chamado, podemos armazenar os dados em cache e buscar no cache primeiro. Se os dados não estiverem no cache, podemos buscá-los no banco de dados ou na API e armazená-los no cache para as próximas chamadas.
+</li>
+<li>
+<b>Considere a paginacão</b>: Se a sua aplicação trabalha com muitos registros, é importante considerar a paginacão no repositório. Assim, você pode buscar e exibir os dados em pequenas partes, melhorando a performance e a experiência do usuário.
+</li>
+<li>
+<b>Documente o repositório</b>: Documentar o repositório pode ser útil para facilitar a compreensão do código e o trabalho em equipe. Além disso, isso ajuda a manter a aplicação atualizada e manter uma base sólida para futuras alterações.
+</li>
+</ol>
