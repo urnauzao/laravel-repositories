@@ -12,5 +12,14 @@ class UserRepository extends AbstractRepository
 
     public static function findByEmail(string $email){
         return self::loadModel()::query()->where(['email' => $email])->first();
+
+    }
+
+    /**
+     * Este método trás o último usuário criado
+     * @return void
+     */
+    public static function findByLastedCreated(){
+        return self::loadModel()::query()->orderByDesc('id')->first();
     }
 }

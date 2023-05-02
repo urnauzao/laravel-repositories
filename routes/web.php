@@ -1,5 +1,6 @@
 <?php
 
+use App\Repository\UserRepository;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return UserRepository::findByLastedCreated();
+    // return view('welcome');
 });
+
+

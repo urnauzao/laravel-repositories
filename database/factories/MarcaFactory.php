@@ -19,7 +19,7 @@ class MarcaFactory extends Factory
         $this->faker->addProvider(new \Faker\Provider\Fakecar($this->faker));
         $produto = $this->faker->vehicleArray;
         return [
-            'nome' => $produto->brand
+            'nome' => $produto['brand']
         ];
     }
 }

@@ -12,6 +12,10 @@ abstract class AbstractRepository implements RepositoryInterface
 {
     protected static $model;
 
+    public static function loadModel():Model{
+        return app(static::$model);
+    }
+
     public static function all():Collection{
         return self::loadModel()::all();
     }
@@ -30,10 +34,6 @@ abstract class AbstractRepository implements RepositoryInterface
 
     public static function update(int $id, array $attributes = []):int{
         return self::loadModel()::query()->where(['id' => $id])->update($attributes);
-    }
-
-    public static function loadModel():Model{
-        return app(static::$model);
     }
 
 }
