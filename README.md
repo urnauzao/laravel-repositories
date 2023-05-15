@@ -31,3 +31,7 @@ O padrão Repository é uma abordagem para isolar a lógica de acesso a dados da
 <b>Documente o repositório</b>: Documentar o repositório pode ser útil para facilitar a compreensão do código e o trabalho em equipe. Além disso, isso ajuda a manter a aplicação atualizada e manter uma base sólida para futuras alterações.
 </li>
 </ol>
+
+# Laravel - Services Pattern
+
+![Laravel Services](/public/img/laravel-services.png)

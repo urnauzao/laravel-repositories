@@ -13,4 +13,8 @@ class MarcaRepository extends AbstractRepository
     public static function findByMarca(string $nome_marca){
         return self::loadModel()::query()->where(['nome' => $nome_marca])->first();
     }
+
+    public static function getMarcaWhereInIds(array $marcas_parceiras_id = []){
+        return self::loadModel()::query()->whereIn('id', $marcas_parceiras_id)->get();
+    }
 }
